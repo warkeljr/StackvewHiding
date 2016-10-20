@@ -9,17 +9,38 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var userDataStackView: UIStackView!
+    @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var voornaamTxt: UITextField!
+    @IBOutlet weak var achternaamTxt: UITextField!
+    @IBOutlet weak var prhase: UILabel!
+    
+    
+    var voornaam = String()
+    var achternaam = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+     
+        self.signInBtn.isHidden = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
-
-
+    
+    @IBAction func signInPressed(_ sender: AnyObject) {
+        
+        self.voornaam = voornaamTxt.text!
+        
+        if achternaamTxt.text != nil {
+            signInBtn.isHidden = false
+        } else {
+            signInBtn.isHidden = true
+        }
+    }
+    
 }
 
